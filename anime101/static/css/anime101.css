@@ -1,0 +1,128 @@
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    line-height: 1.4em;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.125em;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+*{
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+small{
+    font-size: 10;
+}
+
+footer{
+    background: #333;
+    color: white;
+    padding:0 25px;
+    margin-top: auto;
+}
+
+@font-face{
+    font-family: 'SF Pro Display';
+    src: url(../fonts/SFProDisplay.ttf);
+}
+
+@font-face{
+    font-family: 'Helvetica Neue';
+    src: url(../fonts/HelveticaNeue.ttf);
+}
+
+@font-face{
+    font-family: 'montserat';
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face{
+    font-family: 'montserat-sb';
+    src: url(../fonts/Montserrat-SemiBold.ttf);
+}
+
+.container{
+    padding: 0 150px;
+}
+
+.landing{
+    background: url(../media/mm.png) fixed no-repeat;
+    background-size: cover;
+    color: white;
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.landing summary{
+    width: 35%;
+    /*margin-right: 30px;*/
+    text-align: center;
+    text-shadow: 1px 3px 4px #333;
+}
+
+.landing #lefty{
+    float: left;
+}
+
+.landing #righty{
+    float:right;
+}
+
+.landing #mid{
+    margin: 5px 325px;
+    float: right;
+    width: 40%;
+}
+
+.landing #mid img{
+    height: 179;
+    width: 138;
+}
+
+.landing summary legend{
+    font-size: 15;
+    font-family: 'montserat-sb';
+    letter-spacing: 3;
+    margin-bottom: 2px;
+}
+
+.landing summary p, .redirect p{
+    font-size: 13;
+    letter-spacing: 0.7;
+    margin-top: 0;
+}
+
+.redirect{
+    margin-top: 20px;
+}
+.redirect #links{
+    padding-left: 415px;
+}
+
+#links a{
+    padding-left: 0 10px;
+}
+
+
+
+h1{
+    font-family: 'Helvetica Neue'
+}
+
+p{
+    color: ;
+}
+
+
+
+

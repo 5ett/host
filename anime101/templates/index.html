@@ -1,0 +1,38 @@
+{% extends 'block.html' %}
+
+{% block content %}
+<div class="landing">
+    <div class="container">
+        <div id="summaries">
+           <summary id="lefty">
+            <legend>Got an anime to-do list?</legend>
+            <p>
+                Connect your google notes or IOS note anime list and get secure links to watch the anime on that list just by granting access to your note containing anime you need to watch.
+            </p>
+        </summary>
+        <summary id="righty">
+            <legend>Well written articles & reviews</legend>
+            <p>
+                Read non-spoiler reviews and articles on anime you've watched as well as anime you haven't yet watched but would like to know more about. Our community is rid of separatism and judgement.
+            </p>
+        </summary>
+        <summary id="mid">
+            <img src="{{ url_for('static', filename='media/floatpngs/opmdrink.png') }}" alt="saitama_drinking_smoothie">
+            <legend>Recommendations tailored just for you!</legend>
+            <p>
+                Get recommendations based on the anime you've seen and liked to continue binge watching some of the greatest shows to hit the screen with just one click
+            </p>
+        </summary>
+        </div>
+    </div>
+    <div class="container">
+        <div class="redirect">
+            <p style="text-align: center; text-shadow: 1px 3px 4px #333;">Download the anime101 mobile app for Android and IOS in with these links</p>
+            <div id="links">
+                <a href="#"><img src="{{ url_for('static', filename='media/play.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+                <a href="#"><img src="{{ url_for('static', filename='media/app.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
