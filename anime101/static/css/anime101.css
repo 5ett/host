@@ -19,6 +19,10 @@ body{
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
 small{
     font-size: 10;
 }
@@ -27,8 +31,10 @@ footer{
     background: #333;
     color: white;
     padding:0 25px;
-    margin-top: auto;
+    /*margin-top: auto;*/
+    margin-top: 0;
 }
+
 
 @font-face{
     font-family: 'SF Pro Display';
@@ -54,11 +60,26 @@ footer{
     padding: 0 150px;
 }
 
+.reduc img{
+    display: none;
+    transition: all .3s;
+}
+
+.landing nav a legend{
+    font-size: 25;
+    font-family: 'SF Pro Display';
+}
+
+.landing nav{
+    text-align: right;
+    margin-bottom: 140px;
+}
+
 .landing{
     background: url(../media/mm.png) fixed no-repeat;
     background-size: cover;
     color: white;
-    padding-top: 150px;
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
 }
@@ -68,6 +89,7 @@ footer{
     /*margin-right: 30px;*/
     text-align: center;
     text-shadow: 1px 3px 4px #333;
+    font-family: 'SF Pro Display';
 }
 
 .landing #lefty{
@@ -87,6 +109,7 @@ footer{
 .landing #mid img{
     height: 179;
     width: 138;
+    transition: all .5s;
 }
 
 .landing summary legend{
@@ -104,6 +127,8 @@ footer{
 
 .redirect{
     margin-top: 20px;
+    font-family: 'SF Pro Display';
+    margin-bottom: 40px;
 }
 .redirect #links{
     padding-left: 415px;
@@ -113,16 +138,100 @@ footer{
     padding-left: 0 10px;
 }
 
+.above-footer{
+    /*background: url(.../media/dd.png) fixed no-repeat;*/
+    padding: 15px;
+    width: 80%;
+    display: flex;
+    align-items: flex-end;
+}
 
 
 h1{
     font-family: 'Helvetica Neue'
 }
 
-p{
-    color: ;
+.login{
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top:25%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-style:solid;
+    border-width: thin;;
+    border-radius: 20px;
+    transition: all .3;
+}
+
+.floatbg{
+    background-image: url(../media/dd.png);
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+
+#naruto_float{
+    padding-top: 140px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    float: left;
+    transition: all .5s;
 }
 
 
 
 
+
+
+@media (max-width: 952px){
+    .landing nav a legend{
+        font-size: 20;
+    }
+}
+
+@media (max-width: 858px){
+    .landing nav{
+        margin-bottom: 20px;
+    }
+
+    .reduc img{
+        display: block;
+        height: 179;
+        width: 138;
+        margin: 0 34%;
+    }
+    .container{
+        padding: 0 15px;
+    }
+
+    .landing{
+        display: block;
+    }
+
+    #mid img{
+        display: none;
+    }
+
+    .landing summary{
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .landing #lefty{
+        float: none;
+    }
+
+    .landing #righty{
+        float: none;
+    }
+
+    .landing #mid{
+        float: none;
+        margin: 40px auto;
+        width: inherit;
+    }
+
+    .redirect #links{
+        padding: 0 25%;
+    }
+}

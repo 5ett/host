@@ -4,12 +4,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/anime101.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <title>Anime101</title>
+    {% if title %}
+    {% else %}
+        <title>Anime101</title>
+    {% endif %}
 </head>
 <body>
     {% block content %}
     {% endblock %}
-    <footer>
-        <p><small>anime101 by the A-max Team</small></p>
-    </footer>
 </body>
+
+<footer>
+    <div id="sub-footer">
+        <p><small>anime101 by the A-max Team</small></p>
+    </div>
+</footer>
 </html>

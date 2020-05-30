@@ -1,0 +1,32 @@
+{% extends 'block.html' %}
+
+{% block content %}
+    <div class="container">
+        <legend>login</legend>
+        <hr style="width:6%;">
+        <form action="" method="POST" class="login">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.email(class='formfield', placeholder='email') }}
+            </div>
+            <div>
+                {{ form.password(class='formfield', placeholder='password') }}
+            </div>
+            <div>
+                {{ form.submit(class='formsubmit') }}
+            </div>
+        </form>
+    </div>
+    <div class="floatbg">
+        <div id="naruto_float">
+            <img src="{{ url_for('static', filename='media/floatpngs/narutoflp.png') }}" alt="naruto_staring_up">
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="above-footer">
+
+    </div>
+{% endblock %}
