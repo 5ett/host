@@ -35,6 +35,10 @@ footer{
     margin-top: 0;
 }
 
+fieldset{
+    border: none;S
+}
+
 
 @font-face{
     font-family: 'SF Pro Display';
@@ -42,8 +46,13 @@ footer{
 }
 
 @font-face{
-    font-family: 'Helvetica Neue';
+    font-family: 'HelveticaNeue';
     src: url(../fonts/HelveticaNeue.ttf);
+}
+
+@font-face{
+    font-family: 'HelveticaNeue m';
+    src: url(../fonts/HelveticaNeueMedium.ttf);
 }
 
 @font-face{
@@ -138,30 +147,72 @@ footer{
     padding-left: 0 10px;
 }
 
-.above-footer{
-    /*background: url(.../media/dd.png) fixed no-repeat;*/
-    padding: 15px;
-    width: 80%;
-    display: flex;
-    align-items: flex-end;
-}
-
-
 h1{
-    font-family: 'Helvetica Neue'
+    font-family: 'HelveticaNeue'
 }
 
 .login{
-    width: 300px;
+    width: 450px;
     padding: 20px;
     position: absolute;
-    top:25%;
+    top:48%;
     left:50%;
     transform: translate(-50%, -50%);
-    border-style:solid;
-    border-width: thin;;
-    border-radius: 20px;
-    transition: all .3;
+    transition: all .3s;
+}
+
+.login legend, .signup legend{
+    font-size: 28;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.login p small, .signup p small{
+    font-size: 13;
+}
+
+.login fieldset .formfield, .signup fieldset .formfield{
+    border-radius: 14px;
+    border-width: 2px;
+    border-color: black;
+    background-color: transparent;
+    color: #333;
+    font-family: 'HelveticaNeue m';
+    margin: 0 15% 29px 15%;
+    /*transform: translate(-50%, -50%);*/
+    padding: 9px 15px;
+    width: 70%;
+    transition: all .1s;
+
+}
+
+.signup{
+    width: 450px;
+    padding: 20px;
+    position: absolute;
+    top:60%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transition: all .3s;
+}
+
+/*.login .formfield:focus, .login .formfield:hover{
+    width: 100%;
+}*/
+
+.formsubmit{
+    margin: 10px 40%;
+    padding: 8px 19px;
+    border-radius: 10px;
+    border: transparent;
+    background-color: #212026;
+    color: white;
+    font-family: 'HelveticaNeue m'
+}
+
+.formsubmit:hover{
+    background-color: #333;
+
 }
 
 .floatbg{
@@ -177,6 +228,18 @@ h1{
     float: left;
     transition: all .5s;
 }
+
+#opm_float{
+    padding-top: 360px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    float: left;
+    transition: all .5s;
+    float: right;
+    margin-bottom: 52px;
+}
+
+
 
 
 
@@ -233,5 +296,25 @@ h1{
 
     .redirect #links{
         padding: 0 25%;
+    }
+
+    .login fieldset .formfield{
+        color: black;
+        text-align: center;
+    }
+
+    #naruto_float{
+        padding-top: 500px;
+    }
+
+    #naruto_float img{
+        height: 240;
+        width: 150;
+    }
+
+    .login .redirect #links img, .signup .redirect #links img{
+        padding-left: 0;
+        margin: 0;
+        display: inline;
     }
 }

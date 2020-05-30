@@ -2,20 +2,36 @@
 
 {% block content %}
     <div class="container">
-        <legend>login</legend>
-        <hr style="width:6%;">
         <form action="" method="POST" class="login">
-            {{ form.hidden_tag() }}
-            <div>
-                {{ form.email(class='formfield', placeholder='email') }}
+            <legend>login</legend>
+            <hr style="width:15%; line-height: 3px; margin-top: 0; color: #9B9B9B;">
+
+            <p style="text-align: center;"><small>Manage, update and find new anime with your to-watch list with ease</small></p>
+                <fieldset>
+                    {{ form.hidden_tag() }}
+                <div>
+                    {{ form.email(class='formfield', placeholder='email') }}
+                </div>
+                <div>
+                    {{ form.password(class='formfield', placeholder='password') }}
+                </div>
+                <div>
+                    {{ form.submit(class='formsubmit') }}
+                </div>
+            </fieldset>
+            <div style="text-align: center; color: #4972A7">
+                <a href="{{ url_for('signup') }}"><small>don't have an account? Sing up</small></a>
             </div>
-            <div>
-                {{ form.password(class='formfield', placeholder='password') }}
-            </div>
-            <div>
-                {{ form.submit(class='formsubmit') }}
+
+            <div class="redirect">
+                <p style="text-align: center; font-family: 'HelveticaNeue m'; letter-spacing: 0.1;"><small>Download the anime101 mobile app for Android and IOS in with these links</small></p>
+                <div id="links" style="padding-left: 20%;">
+                    <a href="#" style="margin-right: 30px;"><img src="{{ url_for('static', filename='media/play.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='media/app.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+                </div>
             </div>
         </form>
+
     </div>
     <div class="floatbg">
         <div id="naruto_float">
@@ -25,8 +41,3 @@
     </div>
 {% endblock %}
 
-{% block footer %}
-    <div class="above-footer">
-
-    </div>
-{% endblock %}

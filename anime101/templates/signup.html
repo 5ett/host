@@ -1,0 +1,49 @@
+{% extends 'block.html' %}
+
+{% block content %}
+    <div class="container">
+        <form action="" method="POST" class="signup">
+            <legend>sign up</legend>
+            <hr style="width:23%; line-height: 3px; margin-top: 0; color: #9B9B9B;">
+
+            <p style="text-align: center;"><small>Manage, update and find new anime with your to-watch list with ease</small></p>
+                <fieldset>
+                    {{ form.hidden_tag() }}
+                <div>
+                    {{ form.username(class='formfield', placeholder='email') }}
+                </div>
+                <div>
+                    {{ form.email(class='formfield', placeholder='email') }}
+                </div>
+                <div>
+                    {{ form.password(class='formfield', placeholder='password') }}
+                </div>
+                <div>
+                    {{ form.confirm_pw(class='formfield', placeholder='confirm password') }}
+                </div>
+                <div>
+                    {{ form.submit(class='formsubmit') }}
+                </div>
+            </fieldset>
+            <div style="text-align: center; color: #4972A7">
+                <a href="{{ url_for('login') }}"><small>already got an account? login</small></a>
+            </div>
+            <div class="redirect">
+                <p style="text-align: center; font-family: 'HelveticaNeue m'; letter-spacing: 0.1;"><small>Download the anime101 mobile app for Android and IOS in with these links</small></p>
+                <div id="links" style="padding-left: 20%;">
+                    <a href="#" style="margin-right: 30px;"><img src="{{ url_for('static', filename='media/play.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='media/app.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="floatbg">
+        <div id="opm_float">
+            <img src="{{ url_for('static', filename='media/floatpngs/opm.png') }}" height="312.3" width="352.8" alt="saitama_freaking_out">
+
+        </div>
+    </div>
+{% endblock %}
+
+
