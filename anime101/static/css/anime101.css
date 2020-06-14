@@ -69,6 +69,10 @@ fieldset{
     padding: 0 150px;
 }
 
+.reduc{
+    transition: all. 5s;
+}
+
 .reduc img{
     display: none;
     transition: all .3s;
@@ -271,6 +275,10 @@ h1{
         display: block;
     }
 
+    #summaries .up{
+        margin-top: 0;
+    }
+
     #mid img{
         display: none;
     }
@@ -304,7 +312,7 @@ h1{
     }
 
     #naruto_float{
-        padding-top: 500px;
+        padding-top: 420px;
     }
 
     #naruto_float img{
@@ -316,5 +324,14 @@ h1{
         padding-left: 0;
         margin: 0;
         display: inline;
+    }
+
+    #opm_float{
+        padding-top: 590px;
+    }
+
+    #opm_float img{
+        height: 218.51;
+        width:  246.96;
     }
 }

@@ -1,10 +1,11 @@
 Include
-Lib
-Scripts
-pyvenv.cfg
 __pycache__
 inventt.sublime-project
 inventt.sublime-workspace
 inv.db
 lab.txt
+Lib
+Scripts
+pyvenv.cfg
+__pycache__
 
