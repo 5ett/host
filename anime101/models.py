@@ -15,6 +15,7 @@ class User(db.Model):
     sm_link_2 = db.Column(db.String)  # social media links and such
     posts = db.relationship('Article', backref='by', lazy=True)
     playlists = db.relationship('Playlist', backref='owned', lazy=True)
+    facts = db.relationship('Fact', backref='submitted', lazy=True)
 
     def __repr__(self):
         return f'User({self.username}, {self.email}, {self.sm_link_1}, {self.sm_link_2})'
@@ -38,6 +39,7 @@ class Playlist(db.Model):
     titles = db.Column(db.String, nullable=False)
     cover_photo = db.Column(db.String, nullable=False, default='anime101.jpg')
     genre = db.Column(db.String, nullable=False)
+    made_for = db.Column(db.String, nullable=False, default='everyone')
     likes = db.Column(db.Integer)
     marks = db.Column(db.Integer)
     owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -50,7 +52,8 @@ class Playlist(db.Model):
 class Lead(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True, nullable=False)
-    content = db.Column(db.String, nullable=False, default='all')  # content lead would like to receive
+    # content lead would like to receive
+    content = db.Column(db.String, nullable=False, default='all')
     date_added = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow())
 
@@ -66,6 +69,10 @@ class Fact(db.Model):
                             default=datetime.utcnow())
     likes = db.Column(db.Integer)
     comments = db.relationship('Comments', backref='fact_comment', lazy=True)
+    owner = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return f'Fact({self.title}, {self.date_posted}, {self.owner.name})'
 
 
 class Comments(db.Model):
