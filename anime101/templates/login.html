@@ -1,43 +1,33 @@
 {% extends 'block.html' %}
 
 {% block content %}
-    <div class="container">
-        <form action="" method="POST" class="login">
-            <legend>login</legend>
-            <hr style="width:15%; line-height: 3px; margin-top: 0; color: #9B9B9B;">
 
-            <p style="text-align: center;"><small>Manage, update and find new anime with your to-watch list with ease</small></p>
-                <fieldset>
-                    {{ form.hidden_tag() }}
-                <div>
-                    {{ form.email(class='formfield', placeholder='email') }}
+    <div class="text-center new_body">
+            <form class="sign-in">
+                <div class="form-title">
+                    <h1 class="heading">login</h1>
+                    <hr>
                 </div>
                 <div>
-                    {{ form.password(class='formfield', placeholder='password') }}
+                    {{ form.email.label(class='field-label') }}
+                    {{ form.email(class='form-field',  placeholder="email") }}
                 </div>
                 <div>
-                    {{ form.submit(class='formsubmit') }}
+                    {{ form.password.label(class='field-label') }}
+                    {{ form.password(class='form-field',  placeholder="password") }}
                 </div>
-            </fieldset>
-            <div style="text-align: center; color: #4972A7">
-                <a href="{{ url_for('signup') }}"><small>don't have an account? Sing up</small></a>
-            </div>
+                <div>
+                    {{ form.submit(class='buttn form-btn') }}
+                </div>
+                <!-- <button type="submit" class="buttn form-btn">sign in</button> -->
+                <small>don't have an account? <a href="{{url_for('signup')}}" class="redirect">signup</a></small>
+            </form>
+            <div class="floatbg">
+                <div class="anime-chara-naruto">
+                    <img src="static\media\floatpngs\narutoflp.png" alt="naruto_staring_up">
 
-            <div class="redirect">
-                <p style="text-align: center; font-family: 'HelveticaNeue m'; letter-spacing: 0.1;"><small>Download the anime101 mobile app for Android and IOS in with these links</small></p>
-                <div id="altlinks" style="padding-left: 20%;">
-                    <a href="#" style="margin-right: 30px;"><img src="{{ url_for('static', filename='media/play.png') }}" height="33" width="100.33" alt="google_play_store"></a>
-                    <a href="#"><img src="{{ url_for('static', filename='media/app.png') }}" height="33" width="100.33" alt="google_play_store"></a>
                 </div>
             </div>
-        </form>
-
-    </div>
-    <div class="floatbg">
-        <div id="naruto_float">
-            <img src="{{ url_for('static', filename='media/floatpngs/narutoflp.png') }}" alt="naruto_staring_up">
-
         </div>
-    </div>
-{% endblock %}
 
+{% endblock %}

@@ -1,22 +1,62 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/anime101.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
-    <title>Anime101</title>
     {% if title %}
+        <title>{{title}}</title>
     {% else %}
         <title>Anime101</title>
     {% endif %}
 </head>
 <body>
+    {% if title %}
+        <nav>
+            <label for="" class="site_name"><a href="{{url_for('index')}}">anime101</a></label>
+            <ul>
+                {% if title == 'Blog' %}
+                    <li><a href="{{url_for('blog')}}" class="active">blog</a></li>
+                {% else %}
+                    <li><a href="{{url_for('blog')}}">blog</a></li>
+                {% endif %}
+
+                {% if title == 'Fact board' %}
+                    <li><a href="{{url_for('factboard')}}" class="active">fact board</a></li>
+                {% else %}
+                    <li><a href="{{url_for('factboard')}}">fact board</a></li>
+                {% endif %}
+
+                {% if title == 'Playlists' %}
+                    <li><a href="{{url_for('playlists')}}" class="active">playlists</a></li>
+                {% else %}
+                    <li><a href="{{url_for('playlists')}}">playlists</a></li>
+                {% endif %}
+
+                {% if title == 'Login' or title == 'Signup' %}
+                    <li><a href="{{url_for('login')}}" class="active">login</a></li>
+                {% else %}
+                    <li><a href="{{url_for('login')}}">login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 </body>
-
-<footer>
-    <div id="sub-footer">
-        <p><small>anime101 by King Praise</small></p>
-    </div>
-</footer>
+{% if title %}
+    <footer>
+        <div class="container_neo">
+            <div class="footer-collapse unhiglight">
+                <small>&copy;anime101 by King Praise</small>
+                <!-- <small>made for the anime community by the anime community</small> -->
+                <small>2019 design</small></p>
+                <div>
+                    <small>sign-up for newsletters and updates</small>
+                    <input type="text" placeholder="email" class="footinput">
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endif %}
 </html>

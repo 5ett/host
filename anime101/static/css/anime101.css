@@ -1,45 +1,4 @@
-html{
-    height: 100%;
-}
-
-body{
-    margin: 0;
-    line-height: 1.4em;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 1.125em;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-*{
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-}
-
-a{
-    text-decoration: none;
-    color: inherit;
-}
-small{
-    font-size: 10;
-}
-
-footer{
-    background: #333;
-    color: white;
-    padding:0 25px;
-    /*margin-top: auto;*/
-    margin-top: 0;
-}
-
-fieldset{
-    border: none;S
-}
-
-
+/*fontface*/
 @font-face{
     font-family: 'SF Pro Display';
     src: url(../fonts/SFProDisplay.ttf);
@@ -64,274 +23,939 @@ fieldset{
     font-family: 'montserat-sb';
     src: url(../fonts/Montserrat-SemiBold.ttf);
 }
+/*fontface end*/
 
-.container{
-    padding: 0 150px;
+/*html structure*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.reduc{
-    transition: all. 5s;
+html{
+    height: 100%;
+
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*height: 100%;*/
 }
 
-.reduc img{
-    display: none;
-    transition: all .3s;
-}
-
-.landing nav a legend{
-    font-size: 25;
-    font-family: 'SF Pro Display';
-}
-
-.landing nav{
-    text-align: right;
-    margin-bottom: 140px;
-}
-
-.landing{
-    background: url(../media/mm.png) fixed no-repeat;
-    background-size: cover;
-    color: white;
-    padding-top: 25px;
+body{
+    margin: 0;
+    line-height: 1.4em;
+    font-family: 'SF Pro Display', Helvetica, Arial, sans-serif;
+    font-size: 1.125em;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.landing summary{
-    width: 35%;
-    /*margin-right: 30px;*/
-    text-align: center;
-    text-shadow: 1px 3px 4px #333;
-    font-family: 'SF Pro Display';
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
 }
 
-.landing #lefty{
-    float: left;
+*{
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color: inherit;
 }
 
-.landing #righty{
-    float:right;
-}
-
-.landing #mid{
-    margin: 5px 325px;
-    float: right;
-    width: 40%;
-}
-
-.landing #mid img{
-    height: 179;
-    width: 138;
-    transition: all .5s;
-}
-
-.landing summary legend{
-    font-size: 15;
-    font-family: 'montserat-sb';
-    letter-spacing: 3;
-    margin-bottom: 2px;
-}
-
-.landing summary p, .redirect p{
-    font-size: 13;
-    letter-spacing: 0.7;
+h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
-.redirect{
-    margin-top: 20px;
+.text-muted, .unhiglight{
+    color: #999ea1;
+}
+
+.text-center{
+    text-align: center;
+}
+
+main{
+    display: block;
+    background-color: #191C22;
+}
+
+footer{
+    display: block;
+    margin-top: auto;
+    padding-top: 0.07rem;
+    padding-bottom: 0.07rem;
+    background: #10131A;
+    color: #fff;
+    font-family: monospace;
+    letter-spacing: 0.44px;
+    /*position: fixed;*/
+   /* right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;*/
+}
+
+.footer-collapse{
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+footer small{
+    font-size: 10;
+}
+/*html structure end*/
+
+/*nav type*/
+nav{
+    padding: 12px 50px;
+    background-image: url(../media/ccr.png);
+    background-position: bottom;
+    transition-timing-function: ease-in-out;
+    /*position: fixed;
+    width: 100%;*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.landing nav{
+    background-image: url(../media/ccr.png);
+    background-position: top;
+}
+
+nav a{
+    color: inherit;
+}
+
+nav a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+.active{
+    font-size: 20;
+}
+
+nav label, .landing nav label{
+    font-size: 30;
+    font-family: 'montserat-sb';
+    color: white;
+    text-shadow: 1px 3px 4px black;
+    /*padding-left: 150px;*/
+    transition: all .9s;
+    display: inline;
+    padding: 0;
+    margin:0;
+}
+
+/*nav label #site_name{
+    animation: swipeup 5s infinite;
+}*/
+
+nav ul{
+    display: inline;
+    float: right;
+    /*padding-right: 150px;*/
+    float: right;
+    padding: 0;
+    margin:0;
+}
+
+nav ul li{
+    display: inline;
+    margin: 0 5px;
+    color: white;
+    font-size: 16;
+    text-shadow: 1px 2px 5px black;
     font-family: 'SF Pro Display';
-    margin-bottom: 40px;
-}
-.redirect #links{
-    padding-left: 415px;
-}
-
-#links a{
-    padding-left: 0 10px;
-}
-
-h1{
-    font-family: 'HelveticaNeue'
-}
-
-.login{
-    width: 450px;
-    padding: 20px;
-    position: absolute;
-    top:48%;
-    left:50%;
-    transform: translate(-50%, -50%);
     transition: all .3s;
 }
 
-.login legend, .signup legend{
-    font-size: 28;
-    text-align: center;
+/*nav ul li a:active{
+    font-size: 19;
+}*/
+
+nav ul li:hover{
+    font-size: 20;
+}
+/*nav type end*/
+
+
+/*body structure*/
+.menu-bar{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-left: .8rem;
+    margin-right: 2rem;
+    margin-top: 4rem;
+}
+
+.search{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 220px;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    display: none;
+}
+
+/*.search input{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}*/
+
+.search .form-field{
+    position: relative;
+    box-sizing: border-box;
+    height: 37;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.search .form-field:focus{
+    z-index: 2;
+}
+
+.back-change{
+    padding-top: .3rem;
+    height: 10;
+}
+
+.container{
+    margin:0 150px;
+    padding-bottom: 45px;
+    padding-top: 50px;
+    width: 100%;
+}
+
+.container_neo{
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footinput{
+    height: 25px;
+    border-radius: 7px;
+    border: transparent;
+    color: black;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.footinput:focus, .footinput:hover{
+    border: transparent;
+}
+
+.mb-52{
+    margin-bottom: 52px;
+}
+/*body structure end*/
+
+
+
+/*landing page*/
+.landing{
+    background: url(../media/mm.png) fixed no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.landing_page{
+    display: flex;
+    padding-top: 20px;
+}
+
+#info_tabs{
+    float: left;
     margin-bottom: 0;
 }
 
-.login p small, .signup p small{
-    font-size: 13;
+#info_tabs div:first-child{
+    margin-top: 20px;
 }
 
-.login fieldset .formfield, .signup fieldset .formfield{
-    border-radius: 14px;
-    border-width: 2px;
-    border-color: black;
-    background-color: transparent;
-    color: #333;
-    font-family: 'HelveticaNeue m';
-    margin: 0 15% 29px 15%;
-    /*transform: translate(-50%, -50%);*/
-    padding: 9px 15px;
-    width: 70%;
-    transition: all .1s;
-
+.intro{
+    padding: 20px;
+    font-family: 'SF Pro Display';
+    font-size: 14;
+    width: 100%;
+    float: left;
 }
 
-.signup{
-    width: 450px;
+.intro legend{
+    font-family: 'montserat-sb';
+    font-size: 17;
+}
+
+#anime_image{
+    transition: all .5s;
+    /*float: right;*/
+    margin-top: 310px;
+    padding-bottom: 0;
+}
+
+/*landing page end*/
+
+
+
+/*signin/signup*/
+.heading{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    /* margin-bottom: 1rem; */
+    font-size: 1.9rem;
+    font-weight: 400
+}
+
+.sign-in, .sign-up{
+    width: 100%;
+    max-width: 330px;
+    margin: auto;
+    margin-bottom: 0;
     padding: 20px;
     position: absolute;
-    top:60%;
+    top:38%;
     left:50%;
     transform: translate(-50%, -50%);
     transition: all .3s;
 }
 
-/*.login .formfield:focus, .login .formfield:hover{
-    width: 100%;
-}*/
-
-.formsubmit{
-    margin: 10px 40%;
-    padding: 8px 19px;
-    border-radius: 10px;
-    border: transparent;
-    background-color: #212026;
-    color: white;
-    font-family: 'HelveticaNeue m'
+.sign-up{
+    top: 45%;
 }
 
-.formsubmit:hover{
-    background-color: #333;
+.field-label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
+.form-field{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #acb1b6;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.sign-in .form-field, .sign-up .form-field{
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.sign-in .form-field:focus, .sign-up .form-field:focus{
+    z-index: 2;
+}
+
+.sign-in input{
+    margin-bottom: 15px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.sign-in input[type='password']{
+    margin-bottom: 25px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.sign-up input{
+    margin-bottom: 15px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .floatbg{
     background-image: url(../media/dd.png);
     background-repeat: repeat-x;
     background-position: bottom;
+    margin-top: 88.6px;
 }
 
-#naruto_float{
-    padding-top: 140px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    float: left;
+.anime-chara-naruto{
+    padding-top: 58px;
     transition: all .5s;
+    margin-left: -1090;
+    padding-left: 0;
 }
 
-#opm_float{
-    padding-top: 360px;
-    padding-bottom: 0;
+.anime-chara-opm{
+    padding-top: 170px;
+    margin-left: 996px;
+}
+
+.anime-chara-opm img{
+    height: 312.3;
+    width: 352.8;
+}
+
+.sign-in .form-btn, .sign-up .form-btn{
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.sign-in .form-btn:hover, .sign-up .form-btn:hover{
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.redirect{
+    color: #0069d9;
+}
+
+/*signin/signup end*/
+
+
+
+/*blog*/
+.stories{
+    margin-top: 40px;
+}
+
+.story-title{
+    color: white;
+    padding-top: 40px;
+}
+
+.blog_summaries{
+    margin: 30px 0;
+    font-size: 13;
+    /*width: 83%;*/
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.blog_summaries h2{
+    font-size: 18;
+    font-family: 'montserat-sb';
     margin-bottom: 0;
-    float: left;
-    transition: all .5s;
-    float: right;
-    margin-bottom: 52px;
 }
 
-
-
-
-
-
-
-
-@media (max-width: 952px){
-    .landing nav a legend{
-        font-size: 20;
-    }
+.blog_summaries p{
+    margin: 0;
+    display: inline;
+    margin-right: 10px;
 }
 
-@media (max-width: 858px){
-    .landing nav{
-        margin-bottom: 20px;
+.meta p{
+    color: #FFAD5B;
+    letter-spacing: 1.2px;
+}
+/*blog end*/
+
+
+/* playlists */
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.column{
+    position: relative;
+    width: 20%;
+    padding-right: 7px;
+    padding-left: 7px;
+    /* -ms-flex: 0 0 20.0%; */
+    /* flex: 0 0 20.0%;
+    max-width: 20.0%; */
+}
+
+.playlist{
+    padding-top: .3rem;
+    /* background-color: #191C22; */
+}
+
+.plate{
+    /* width: 21%; */
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #191C22;
+    box-shadow: 3px 3px 6px #10131A;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.plate_cover{
+    height: 120;
+    width: 100%;
+    object-fit: cover;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.plate_body{
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding-right: 1.1rem;
+    padding-left: 1.1rem;
+    padding-bottom: 1.1rem;
+}
+
+.plate_summary {
+    color: #fff;
+    font-size: 13;
+    /*margin-bottom: 0.2rem;*/
+}
+
+.plate_genre, .owner{
+    color: #FFAD5B;
+    font-size: 11;
+    margin-top: 0;
+    padding: 0;
+}
+
+.arranger{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.arranger .text-muted{
+    font-size: 14;
+}
+
+.plate_buttons{
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.buttn{
+    display: inline-block;
+    font-weight: 400;
+    color: inherit;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* background-color: transparent; */
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+.buttn:hover{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.interaction{
+    color: white;
+}
+
+.interaction img{
+    padding: 0 2px;
+}
+
+.interaction p{
+    padding-right: 2px;
+}
+
+.plate_body .interaction .text-muted{
+    font-size: 12;
+}
+/* playlists end */
+
+
+
+
+
+
+
+
+
+
+/*media queries*/
+@media (max-width: 1199.98px) {
+    .container_neo{
+        padding-left: 30px;
     }
 
-    .reduc img{
-        display: block;
-        height: 179;
-        width: 138;
-        margin: 0 34%;
-    }
-    .container{
-        padding: 0 15px;
+    nav, .landing nav{
+        padding: 9px;
+        margin-bottom: 10px;
+        position: fixed;
     }
 
-    .landing{
-        display: block;
+    nav label, .landing nav label{
+        font-size: 32;
+        margin-left: 30px;
     }
 
-    #summaries .up{
+    nav ul, .landing nav ul{
+       margin: 0 20px;
+    }
+
+    nav ul li, .landing nav ul li{
+        font-size: 13;
+    }
+
+    nav ul li:hover, .landing nav ul li:hover{
+        font-size: 17;
+    }
+
+    .landing_page{
+        flex-direction: column;
+    }
+
+    #info_tabs{
+        float: none;
+    }
+
+    .intro{
+        width: 100%;
+        padding: 13px;
+        float: none;
+    }
+
+     #anime_image{
+        margin-top: 0px;
+        padding-bottom: 0;
+    }
+
+    .heading{
         margin-top: 0;
+        margin-bottom: 0.5rem;
+        /* margin-bottom: 1rem; */
+        font-size: 2.4rem;
     }
 
-    #mid img{
-        display: none;
+    .sign-in, .sign-up{
+        max-width: 440px;
+        top:40%;
     }
 
-    .landing summary{
-        width: 90%;
-        margin: 40px auto;
+    .sign-in .form-btn{
+        width: 100%;
     }
 
-    .landing #lefty{
+    .floatbg{
+        margin-top: 785px;
+    }
+
+    .anime-chara-naruto{
+        margin-left: -730px;
+    }
+
+    .anime-chara-opm{
+        margin-left: 650px;
+    }
+
+    .playlist .plate_summary{
+        font-size: 12;
+    }
+
+    .playlist .plate_genre{
+        font-size: 12;
+    }
+
+    .playlist .interaction .text-muted{
+        font-size: 12;
+    }
+
+    .playlist .column{
+        width: 32%;
+    }
+  }
+
+@media (max-width: 991.98px) {
+    .container_neo{
+        padding-left: 30px;
+    }
+
+    nav label, .landing nav label{
+        font-size: 22;
+        margin-left: 12px;
+    }
+
+    nav ul, .landing nav ul{
+        margin: 0 13px;
+    }
+
+    .active{
+        font-size: 14;
+    }
+
+    .landing_page{
+        display: block;
+    }
+
+    #info_tabs{
         float: none;
     }
 
-    .landing #righty{
-        float: none;
-    }
-
-    .landing #mid{
-        float: none;
-        margin: 40px auto;
-        width: inherit;
-    }
-
-    .redirect #links{
-        padding: 0 25%;
-    }
-
-    .login fieldset .formfield{
-        color: black;
+    .intro{
         text-align: center;
     }
 
-    #naruto_float{
-        padding-top: 420px;
+    #anime_image{
+        float: none;
+        margin-top: 0;
+        padding-bottom: 0;
+        /*align-items: flex-start;*/
     }
 
-    #naruto_float img{
-        height: 240;
-        width: 150;
+    #anime_image img{
+        width: 130;
+        height: 230;
+        margin-left: 190px;
     }
 
-    .login .redirect #links img, .signup .redirect #links img{
-        padding-left: 0;
-        margin: 0;
-        display: inline;
+    .heading{
+        font-size: 2.4rem;
     }
 
-    #opm_float{
-        padding-top: 590px;
+    .sign-in, .sign-up{
+        max-width: 330px;
+        /*top:40%;*/
     }
 
-    #opm_float img{
-        height: 218.51;
-        width:  246.96;
+    .sign-in .form-btn{
+        width: 100%;
+    }
+
+    .floatbg{
+        margin-top: 425px;
+    }
+
+    .anime-chara-naruto{
+        margin-left: -210px;
+    }
+
+    .anime-chara-opm{
+        margin-left: 403px;
+    }
+
+    .anime-chara-naruto img{
+        height: 260;
+        width: 160;
+    }
+
+    .playlist .plate_summary{
+        font-size: 12;
+    }
+
+    .playlist .plate_genre{
+        font-size: 12;
+    }
+
+    .playlist .interaction .text-muted{
+        font-size: 12;
+    }
+    /* .playlist .row{
+        display: block;
+    } */
+
+    .playlist .column{
+        width: 32%;
+    }
+
+    footer{
+        position: relative;
+        display: block;
     }
 }
+
+@media (max-width: 777.98px){
+    .container_neo{
+        padding-left: 25px;
+    }
+
+    .sign-in{
+        max-width: 330px;
+        top:38%;
+    }
+
+    .floatbg{
+        margin-top: 655px;
+    }
+
+    .anime-chara-naruto{
+        margin-left: -600px;
+    }
+
+    .anime-chara-opm{
+        padding-top: 0px;
+    }
+
+    .playlist .plate_summary{
+        font-size: 12;
+    }
+
+    .playlist .plate_genre{
+        font-size: 12;
+    }
+
+    .playlist .interaction .text-muted{
+        font-size: 12;
+    }
+    /* .playlist .row{
+        display: block;
+    } */
+
+    .playlist .column{
+        width: 50%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container_neo{
+        padding-left: 40px;
+    }
+
+    .active{
+        font-size: 15;
+    }
+
+    .sign-in{
+        max-width: 330px;
+        top:40%;
+    }
+
+    .sign-up{
+        top: 40%;
+    }
+
+    .floatbg{
+        margin-top: 433px;
+    }
+
+    .anime-chara-naruto{
+        margin-left: -210px;
+    }
+
+    .anime-chara-opm{
+        padding-top: 120px;
+        margin-left: 220px;
+    }
+
+    .anime-chara-opm img{
+        height: 156.15;
+        width: 176.4;
+    }
+
+    .playlist .plate_summary{
+        font-size: 14;
+    }
+
+    .playlist .plate_genre{
+        font-size: 13;
+    }
+
+    .playlist .interaction .text-muted{
+        font-size: 14;
+    }
+    /* .playlist .row{
+        display: block;
+    } */
+
+    .playlist .column{
+        width: 89%;
+    }
+
+    footer small{
+        font-size: 9;
+        padding-right: 0.6rem;
+
+    }
+
+    footer .container_neo{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 399.98px){
+    .sign-up{
+        top: 48%;
+    }
+    .anime-chara-opm{
+        padding-top: 120px;
+        margin-left: 180px;
+    }
+}
+
+@media (max-width: 350px){
+
+    .sign-up{
+        top: 55%;
+    }
+
+    .anime-chara-opm{
+        padding-top: 2px;
+        margin-left: 127px;
+}
+
+/*media queries end*/
+

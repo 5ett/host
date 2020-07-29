@@ -18,4 +18,19 @@ def login():
 @app.route('/signup')
 def signup():
     form = Signup()
-    return render_template('signup.html', form=form, title='New User')
+    return render_template('signup.html', form=form, title='Signup')
+
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html', title='Blog')
+
+
+@app.route('/factboard')
+def factboard():
+    return render_template('fact-board.html', title='Fact board')
+
+
+@app.route('/playlists')
+def playlists():
+    return render_template('playlists.html', title='Playlists')

@@ -10,10 +10,12 @@ class Login(FlaskForm):
 
 
 class Signup(FlaskForm):
+    name = StringField('name', validators=[DataRequired()])
     username = StringField('username', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired(), Email()])
     password = PasswordField('password', validators=[
                              DataRequired(), Length(min=8, max=20)])
     confirm_pw = PasswordField('password', validators=[DataRequired(
     ), EqualTo(password, message="passwords don't match")])
+    submit = SubmitField('sign up')
     submit = SubmitField('sign up')

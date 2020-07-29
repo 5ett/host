@@ -1,47 +1,52 @@
 {% extends 'block.html' %}
 
 {% block content %}
-<div class="landing">
-    <div class="container">
-        <div>
-           <nav>
-            <a href="{{ url_for('login') }}"><legend>login</legend></a>
-        </nav>
-        </div>
-        <div class="reduc">
-            <img src="{{ url_for('static', filename='media/floatpngs/opmdrink.png') }}" alt="saitama_drinking_smoothie">
-            <!-- <img src="{{ url_for('static', filename='media/floatpngs/zoro.png') }}" width="210" alt="zoro_waving_swords"> -->
-        </div>
-        <div id="summaries">
-           <summary id="lefty" class="up">
-            <legend>Got an anime to-do list?</legend>
-            <p>
-                Connect your Google Notes or IOS Note anime list and get secure links to watch the anime on that list just by granting access to your note containing anime you need to watch.
-            </p>
-        </summary>
-        <summary id="righty">
-            <legend>Well written articles & reviews</legend>
-            <p>
-                Read non-spoiler reviews and articles on anime you've watched as well as anime you haven't yet watched but would like to know more about. Our community is rid of separatism and judgement.
-            </p>
-        </summary>
-        <summary id="mid">
-            <img src="{{ url_for('static', filename='media/floatpngs/opmdrink.png') }}" alt="saitama_drinking_smoothie">
-            <legend>Recommendations tailored just for you!</legend>
-            <p>
-                Get recommendations based on the anime you've seen and liked to continue binge watching some of the greatest shows to hit the screen with just one click
-            </p>
-        </summary>
-        </div>
-    </div>
-    <div class="redirect">
-        <div class="container">
-            <p style="text-align: center; text-shadow: 1px 3px 4px #333;">Download the anime101 mobile app for Android and IOS in with these links</p>
-            <div id="links">
-                <a href="#"><img src="{{ url_for('static', filename='media/play.png') }}" height="33" width="100.33" alt="google_play_store"></a>
-                <a href="#"><img src="{{ url_for('static', filename='media/app.png') }}" height="33" width="100.33" alt="google_play_store"></a>
+    <div class="landing">
+            <nav>
+               <label for="" class="site_name">anime101</label>
+                <ul>
+                    <li><a href="{{url_for('blog')}}">blog</a></li>
+                    <li><a href="{{url_for('factboard')}}">fact board</a></li>
+                    <li><a href="{{url_for('playlists')}}">playlists</a></li>
+                    <li><a href="{{url_for('login')}}">login</a></li>
+                </ul>
+            </nav>
+        <div class="container_neo">
+            <div class="landing_page">
+                <div id="info_tabs">
+                    <div class="intro">
+                        <legend>Bored at home? got some free time?</legend>
+                        <p>
+                            Anime101 allows you to submit anime recommendations and playlists for new and old weebs alike. By creating a community of co-dependence, we hope to strengthen the bonds which connect us as weebs and believers in anime.
+                            Your playlists will be rated by those who use them so others might know or find you easily. You can garner fans but ultimately serve the one community: The Anime community
+                        </p>
+                    </div>
+                    <div class="intro">
+                        <legend>Got a legit and unbiased take on anime?</legend>
+                        <p>
+                            You can also submit fun anime review articles which will be featured on our blog page for all weebs to see. Take it as the Hokage Stone Heads in Konoha, everyone will see it as long as they enter this space!
+                            We'll also make sure hate speech and sensitive content will be treated as necessary. Besides that, almost all content will be allowed for fans of every genre and type of anime to enjoy interacting with articles and playlists. Yes, after you use or subscribe to a playlist, you could submit your experience for the XP section of the blog page.
+                        </p>
+                    </div>
+                    <div class="intro">
+                        <legend>Heard any "fact" you're not sure of?</legend>
+                        <p>
+                            From Twitter to Tiktok, weeb creators have muddled their content with "facts" that cannot be proven with evidence. Huh? you got that right. People will say anything for a following these days and honestly, we could do better as a community.
+                            It's why we came up with the Fact Board section. We'll provide verifiable facts from any and all anime with links to interviews, trustworthy articles and Youtube videos. You can submit interesting anime facts you find with links. If they're verified, they'll be featured, you'll be credited and links to your socials will be added so fellow weebs can connect with you. Increase your credibility in the anime community and become a reviewer for Anime101.
+                            The moment you provide new and verifiable facts to the fact board, a 5 star meter will start running and with more facts delivered, the higher your ratings and credibility go! Fun right?
+                        </p>
+                    </div>
+                    <div class="intro">
+                        <legend>If you've got any of the above, check the submit page!</legend>
+                        <p>
+                            From facts to reviews to playlists, you're free to send as many as you'd like. Really, there's no limit to what you can submit as far as they're clean, helpful and interactively fun. Go to the submit page and follow the guidelines to get your articles and fact findings featured on Anime101
+                        </p>
+                    </div>
+                </div>
+                <div id="anime_image">
+                        <img  src="static\media\floatpngs\naruto.png" alt="naruto_staring_up" onclick="slideImage()">
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
