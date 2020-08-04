@@ -157,10 +157,6 @@ nav label, .landing nav label{
     margin:0;
 }
 
-/*nav label #site_name{
-    animation: swipeup 5s infinite;
-}*/
-
 nav ul{
     display: inline;
     float: right;
@@ -273,6 +269,47 @@ nav ul li:hover{
 
 
 
+/*alerts*/
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-info{
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.alert-success{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.error-msg{
+    display: block;
+    width: 100%;
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 70%;
+    color: #dc3545;
+    text-align: left;
+}
+/*alerts end*/
+
+
+
 /*landing page*/
 .landing{
     background: url(../media/mm.png) fixed no-repeat;
@@ -282,7 +319,7 @@ nav ul li:hover{
 
 .landing_page{
     display: flex;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
 }
 
 #info_tabs{
@@ -291,7 +328,7 @@ nav ul li:hover{
 }
 
 #info_tabs div:first-child{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .intro{
@@ -341,7 +378,7 @@ nav ul li:hover{
 }
 
 .sign-up{
-    top: 45%;
+    top: 48%;
 }
 
 .field-label{
@@ -356,7 +393,7 @@ nav ul li:hover{
     border: 0;
 }
 
-.form-field{
+.form-field, .form-field-split{
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -370,7 +407,26 @@ nav ul li:hover{
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.sign-in .form-field, .sign-up .form-field{
+.sign-up .form-field .invalid,
+.sign-up .form-field .invalid{
+    border-color: #dc3545;
+}
+
+/*.sign-up .form-field:invalid:focus,
+.sign-up .form-field:invalid:focus{
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.1rem rgba(220, 53, 69, 0.25);
+}*/
+
+.form-field-split{
+    width: 49%;
+    display: inline;
+    margin-right: auto;
+}
+
+.sign-in .form-field,
+.sign-up .form-field,
+.sign-up .form-field-split{
     position: relative;
     box-sizing: border-box;
     height: auto;
@@ -378,7 +434,9 @@ nav ul li:hover{
     font-size: 16px;
 }
 
-.sign-in .form-field:focus, .sign-up .form-field:focus{
+.sign-in .form-field:focus,
+.sign-up .form-field:focus,
+.sign-up .form-field-split:focus{
     z-index: 2;
 }
 
@@ -395,7 +453,7 @@ nav ul li:hover{
 }
 
 .sign-up input{
-    margin-bottom: 15px;
+    margin-top: 12px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -446,6 +504,15 @@ nav ul li:hover{
 
 .redirect{
     color: #0069d9;
+}
+
+.confirmation{
+    width: 80%;
+    text-align: left;
+}
+
+.confirmation .header{
+    width: 30%;
 }
 
 /*signin/signup end*/

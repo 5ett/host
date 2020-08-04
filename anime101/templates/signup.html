@@ -10,19 +10,48 @@
                     <hr>
                 </div>
                 <div>
-                    {{ form.name(class='form-field',  placeholder="name") }}
+                    {{ form.first_name(class='form-field-split',  placeholder="first name") }}
+                    {{ form.last_name(class='form-field-split',  placeholder="last name") }}
                 </div>
                 <div>
-                    {{ form.username(class='form-field',  placeholder="username") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class='form-field invalid',  placeholder="last name") }}
+                        {% for error in form.username.errors %}
+                            <!-- <div class="error-msg">{{ error }}</span> -->
+                        {% endfor %}
+                    {% else %}
+                        {{ form.username(class='form-field',  placeholder="username") }}
+                    {% endif %}
                 </div>
                 <div>
-                    {{ form.email(class='form-field',  placeholder="email") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class='form-field invalid',  placeholder="email") }}
+                        {% for error in form.email.errors %}
+                            <div class="error-msg">{{ error }}</div>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email(class='form-field',  placeholder="email") }}
+                    {% endif %}
                 </div>
                 <div>
-                    {{ form.password(class='form-field',  placeholder="password") }}
+                     {% if form.password.errors %}
+                        {{ form.password(class='form-field invalid',  placeholder="password") }}
+                        {% for error in form.password.errors %}
+                            <div class="error-msg">{{ error }}</div>
+                        {% endfor %}
+                     {% else %}
+                        {{ form.password(class='form-field',  placeholder="password") }}
+                    {% endif %}
                 </div>
                 <div>
-                    {{ form.confirm_pw(class='form-field',  placeholder="confirm password") }}
+                    {% if form.confirm.errors %}
+                        {{ form.confirm(class='form-field invalid',  placeholder="confirm password") }}
+                        {% for error in form.confirm.errors %}
+                            <!-- <div class="error-msg">{{ error }}</div> -->
+                        {% endfor %}
+                     {% else %}
+                    {{ form.confirm(class='form-field',  placeholder="confirm password") }}
+                    {% endif %}
                 </div>
                 <div>
                     {{ form.submit(class='buttn form-btn') }}

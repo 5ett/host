@@ -1,21 +1,28 @@
-from anime101 import db
+from anime101 import db, osyrus
 from flask_login import UserMixin
 from datetime import datetime
 
 
-class User(db.Model):
+@osyrus.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    username = db.Column(db.String, unique=True, nullable=False)
+    username = db.Column(db.String(10), unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
     profile_photo = db.Column(db.String, nullable=False, default='unknown.jpg')
-    notifier = db.Column(db.String, nullable=False, default='gon.png')
+    notifier = db.Column(db.String, nullable=False, default='gon')
     sm_link_1 = db.Column(db.String)  # social media links and such
     sm_link_2 = db.Column(db.String)  # social media links and such
     posts = db.relationship('Article', backref='by', lazy=True)
     playlists = db.relationship('Playlist', backref='owned', lazy=True)
     facts = db.relationship('Fact', backref='submitted', lazy=True)
+    like = db.relationship('Likes', backref='liked', lazy=True)
+    comment = db.relationship('Comments', backref='commented', lazy=True)
 
     def __repr__(self):
         return f'User({self.username}, {self.email}, {self.sm_link_1}, {self.sm_link_2})'
@@ -28,7 +35,9 @@ class Article(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False,
                             default=datetime.utcnow())
     likes = db.Column(db.Integer)
-    owner = db.Column(db.Integer, db.ForeignKey('user'), nullable=False)
+    like = db.relationship('Likes', backref='upvoted', lazy=True)
+
+    owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f'Article({self.title}, {self.date_posted}, {self.likes})'
@@ -42,8 +51,9 @@ class Playlist(db.Model):
     made_for = db.Column(db.String, nullable=False, default='everyone')
     likes = db.Column(db.Integer)
     marks = db.Column(db.Integer)
-    owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     comments = db.relationship('Comments', backref='playlist_comment')
+
+    owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f'Playlist({self.id}, {self.titles}, {self.cover_photo},{self.owner})'
@@ -69,7 +79,9 @@ class Fact(db.Model):
                             default=datetime.utcnow())
     likes = db.Column(db.Integer)
     comments = db.relationship('Comments', backref='fact_comment', lazy=True)
-    owner = db.Column(db.Integer, db.ForeignKey('user.id'))
+    liked = db.relationship('Likes', backref='liked_by', lazy=True)
+
+    owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f'Fact({self.title}, {self.date_posted}, {self.owner.name})'
@@ -83,3 +95,22 @@ class Comments(db.Model):
                      default=datetime.utcnow())  # date of comment
     fact = db.Column(db.Integer, db.ForeignKey('fact.id'))
     playlist = db.Column(db.Integer, db.ForeignKey('playlist.id'))
+
+    owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f'Comment({self.id}, {self.comment}, {self.owner.name})'
+
+
+class Likes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    item_liked = db.Column(db.String, nullable=False)
+    post = db.Column(db.Integer, db.ForeignKey('article.id'))
+    lists = db.Column(db.Integer, db.ForeignKey('playlist.id'))
+    facts = db.Column(db.Integer, db.ForeignKey('fact.id'))
+
+    thumbed_by = db.Column(
+        db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f'Like({self.id}, {self.liked_by.name}, {self.item_liked}'
